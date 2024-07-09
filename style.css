@@ -1,5 +1,8 @@
 :root {
     --primary-color: orange;
+    --card-border-radius: 7px;
+    --card-title-color: orange;
+    --card-category-color: seagreen;
 }
 
 * {
@@ -13,54 +16,82 @@ body{
     font-size: 14px;
     display: flex;
     align-items: center;
-    margin: 3rem;
+    margin: 2rem;
 }
 /* mobile view */
 .card-container {
-border: 1px solid #000;
-max-width: 1200px;
+/* border: 1px solid #000; */
+/* max-width: 1200px; */
 width: 90%;
 display: grid;
 grid-template-columns: repeat(2, 1fr);
-margin: 5rem;
+margin: 35px;
 
 /* background-color: var(--primary-color); */
 gap: 2rem;
 }
 
 .card {
- border: 1px solid #000; 
+/* border: 1px solid #000; */
 /* height: 200px; */
+box-shadow: 0px 2px 4px hsl(0deg, 4%, #333);
+border-radius: var(--card-border-radius);
+transition: all 0s ease-out;
+
+&:hover{
+    box-shadow: 3px 6px 30px #333;
+    transform: translateY(-5px);
+}
 }
 
 .card-link {
-
+text-decoration: none;
+height: 100%;
+display: flex;
+flex-direction: column;
+color: var(--primary-color);
 }
 
 .card-img {
     width: 100%;
-    height: 50%;
-
+   /* height: 33%; */
+/* border-radius: var(--card-border-radius); */
+border-top-left-radius: var(--card-border-radius);
+border-top-right-radius: var(--card-border-radius);
+object-fit: cover;
 }
 
 .card-body {
+padding: 2rem;
+flex-grow: 1;
+display: flex;
+flex-direction: column;
 
 }
 
 .card-category {
-
+color: var(--card-category-color);
+font-size: 1.4rem;
+font-weight: 500;
 }
 
 .card-title {
-
+color: var(card-title-color);
+margin-bottom: 1.3rem;
+font-family: cursive;
+font-size: 2rem;
 }
 
 .card-description {
-
+flex-grow: 1;
+margin-bottom: 1.2rem;
+line-height: 1.5;
 }
 
 .card-post-info {
-
+display: flex;
+align-items: center;
+gap: 1rem;
 }
 
 .card-avator {
@@ -69,17 +100,34 @@ gap: 2rem;
     border-radius: 50%;
     object-fit: cover;
 }
+.card-author {
+    color: var(--card-category-color);
+    font-family: cursive;
+    font-size: 1.2rem;
+}
+.card-date {
+    color: #777;
+}
 /* tablet view */
 @media (min-width: 700px) {
     .card-container {
         grid-template-columns: repeat(2, 1fr);
        
     }
+
+    .card-img {
+        width: 100%;
+        height: 45%;
+    }
 }
 /* desktop view */
 @media (min-width: 700px) {
     .card-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
        
+    }
+    .card-img {
+        width: 100%;
+        height: 35%;
     }
 }
